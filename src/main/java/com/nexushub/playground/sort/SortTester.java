@@ -1,5 +1,6 @@
 package com.nexushub.playground.sort;
 
+import java.util.List;
 import java.util.Random;
 
 public class SortTester {
@@ -7,13 +8,17 @@ public class SortTester {
 
   private static final Stopwatch stopwatch = new Stopwatch();
 
-  private static final int ARR_SIZE = 500000;
+  private static final int ARR_SIZE = 5000;
 
-  private static final int ARR_BOUND = 1000000;
+  private static final int ARR_BOUND = 1000;
 
   public static void main(String[] args) {
-    runSort(new BubbleSort());
-    runSort(new SelectionSort());
+    List<Sort> sortList = List.of(
+      new BubbleSort(),
+      new SelectionSort(),
+      new InsertionSort()
+    );
+    sortList.forEach(SortTester::runSort);
   }
 
   private static void runSort(Sort sortAlgorithm) {
@@ -22,7 +27,7 @@ public class SortTester {
     stopwatch.start();
     long[] sorted = sortAlgorithm.sort(arr);
     stopwatch.stop();
-//    printArr(sorted);
+    printArr(sorted);
     System.out.println("Time: " + stopwatch.getElapsedTimeMillis());
   }
 
