@@ -1,0 +1,11 @@
+/* Style for bold text */
+.bold-text {
+    -fx-font-weight: bold;
+    -fx-fill: red;
+}
+
+.normal-text {
+    -fx-font-size: 24px;
+    -fx-font-family: Consolas;
+}
+
