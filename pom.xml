@@ -11,6 +11,10 @@
     <modules>
         <module>common</module>
         <module>clock</module>
+        <module>app-box</module>
+        <module>nexushub-ai</module>
+        <module>tomcat-configuration</module>
+        <module>tik-tak-toe</module>
     </modules>
 
     <properties>
@@ -19,4 +23,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>3.3.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
