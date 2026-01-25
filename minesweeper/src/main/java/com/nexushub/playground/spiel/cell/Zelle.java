@@ -16,14 +16,14 @@ public class Zelle {
   public String toString() {
     return switch (status) {
       case MARKIERT -> "!  ";
-      case AUFGEDECKT -> Integer.toString(ausgabe) + "  ";
+      case AUFGEDECKT -> ausgabe + "  ";
       case EXPLODIERT -> "*  ";
       default -> "   ";
     };
   }
 
   /**
-   * Überprüft ob die Zelle eine Mine besitzt.
+   * Überprüft, ob die Zelle eine Mine besitzt.
    *
    * @return boolean
    *
@@ -34,10 +34,6 @@ public class Zelle {
 
   public void setMine(Mine mine) {
     this.mine = mine;
-  }
-
-  public Mine getMine() {
-    return this.mine;
   }
 
   public void setStatus(Status status) {

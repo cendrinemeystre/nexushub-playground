@@ -33,7 +33,9 @@ public class Spielfeld {
     int maxBomben = (int) Math.pow(groesse, 2) - 10;
     if (minenAnzahl < min) {
       this.minenAnzahl = min;
-    } else this.minenAnzahl = Math.min(minenAnzahl, maxBomben);
+    } else {
+      this.minenAnzahl = Math.min(minenAnzahl, maxBomben);
+    }
 
     for (int i = 0; i < zellen.length; i++) {
       for (int j = 0; j < zellen[i].length; j++) {
@@ -71,140 +73,25 @@ public class Spielfeld {
   private void setzeZahl() {
     for (int x = 0; x < zellen.length; x++) {
       for (int y = 0; y < zellen[x].length; y++) {
+        if (zellen[x][y].hatMine()) {
+          continue;
+        }
+
         int count = 0;
-        if (!zellen[x][y].hatMine()) {
-          if (x == 0 && y == 0) { // Ecke oben Links
-            if (zellen[x + 1][y].hatMine()) {
-              count++;
+        for (int dx = -1; dx <= 1; dx++) {
+          for (int dy = -1; dy <= 1; dy++) {
+            if (dx == 0 && dy == 0) {
+              continue;
             }
-            if (zellen[x][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x + 1][y + 1].hatMine()) {
-              count++;
-            }
-          } else if (x == 0 && y == zellen[0].length - 1) { // Ecke unten Links
-            if (zellen[x][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x + 1][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x + 1][y].hatMine()) {
-              count++;
-            }
-          } else if (x == zellen.length - 1 && y == 0) { // Ecke oben Rechts
-            if (zellen[x][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y].hatMine()) {
-              count++;
-            }
-          } else if (x == zellen.length - 1 && y == zellen[0].length - 1) { //Ecke unten Rechts
-            if (zellen[x - 1][y].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x][y - 1].hatMine()) {
-              count++;
-            }
-          } else if (x == 0) { // linke Wand
-            if (zellen[x + 1][y].hatMine()) {
-              count++;
-            }
-            if (zellen[x][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x + 1][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x + 1][y - 1].hatMine()) {
-              count++;
-            }
-          } else if (y == 0) { // Obere Wand
-            if (zellen[x + 1][y].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y].hatMine()) {
-              count++;
-            }
-            if (zellen[x + 1][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y + 1].hatMine()) {
-              count++;
-            }
-          } else if (x == zellen.length - 1) { // Rechte Wand
-            if (zellen[x][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y + 1].hatMine()) {
-              count++;
-            }
-          } else if (y == zellen[0].length - 1) { // Untere Wand
-            if (zellen[x + 1][y].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y].hatMine()) {
-              count++;
-            }
-            if (zellen[x + 1][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y - 1].hatMine()) {
-              count++;
-            }
-          } else { // Mitte
-            if (zellen[x + 1][y].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y].hatMine()) {
-              count++;
-            }
-            if (zellen[x][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x + 1][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x + 1][y - 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y + 1].hatMine()) {
-              count++;
-            }
-            if (zellen[x - 1][y - 1].hatMine()) {
+            int nx = x + dx;
+            int ny = y + dy;
+            if (nx >= 0 && nx < zellen.length && ny >= 0 && ny < zellen[x].length && zellen[nx][ny].hatMine()) {
               count++;
             }
           }
-          zellen[x][y].setOutput(count);
         }
+
+        zellen[x][y].setOutput(count);
       }
     }
   }
@@ -233,58 +120,19 @@ public class Spielfeld {
    *
    **/
   private void deckeUmgebendeKoordinatenAuf(int x, int y) {
-    if (x == 0 && y == 0) { // Ecke oben Links
-      deckeKoordinateAuf(x + 1, y);
-      deckeKoordinateAuf(x, y + 1);
-      deckeKoordinateAuf(x + 1, y + 1);
-    } else if (x == 0 && y == zellen[0].length - 1) { // Ecke unten Links
-      deckeKoordinateAuf(x, y - 1);
-      deckeKoordinateAuf(x + 1, y - 1);
-      deckeKoordinateAuf(x + 1, y);
-    } else if (x == zellen.length - 1 && y == 0) { // Ecke oben Rechts
-      deckeKoordinateAuf(x, y + 1);
-      deckeKoordinateAuf(x - 1, y + 1);
-      deckeKoordinateAuf(x - 1, y);
-    } else if (x == zellen.length - 1 && y == zellen[0].length - 1) { //Ecke unten Rechts
-      deckeKoordinateAuf(x - 1, y);
-      deckeKoordinateAuf(x - 1, y - 1);
-      deckeKoordinateAuf(x, y - 1);
-    } else if (x == 0) { // linke Wand
-      deckeKoordinateAuf(x + 1, y);
-      deckeKoordinateAuf(x, y + 1);
-      deckeKoordinateAuf(x + 1, y + 1);
-      deckeKoordinateAuf(x, y - 1);
-      deckeKoordinateAuf(x + 1, y - 1);
-    } else if (y == 0) { // Obere Wand
-      deckeKoordinateAuf(x + 1, y);
-      deckeKoordinateAuf(x - 1, y);
-      deckeKoordinateAuf(x + 1, y + 1);
-      deckeKoordinateAuf(x, y + 1);
-      deckeKoordinateAuf(x - 1, y + 1);
-    } else if (x == zellen.length - 1) { // Rechte Wand
-      deckeKoordinateAuf(x, y - 1);
-      deckeKoordinateAuf(x, y + 1);
-      deckeKoordinateAuf(x - 1, y - 1);
-      deckeKoordinateAuf(x - 1, y);
-      deckeKoordinateAuf(x - 1, y + 1);
-    } else if (y == zellen[0].length - 1) { // Untere Wand
-      deckeKoordinateAuf(x + 1, y);
-      deckeKoordinateAuf(x - 1, y);
-      deckeKoordinateAuf(x + 1, y - 1);
-      deckeKoordinateAuf(x, y - 1);
-      deckeKoordinateAuf(x - 1, y - 1);
-    } else { // Mitte
-      deckeKoordinateAuf(x + 1, y);
-      deckeKoordinateAuf(x - 1, y);
-      deckeKoordinateAuf(x, y + 1);
-      deckeKoordinateAuf(x, y - 1);
-      deckeKoordinateAuf(x + 1, y + 1);
-      deckeKoordinateAuf(x + 1, y - 1);
-      deckeKoordinateAuf(x - 1, y + 1);
-      deckeKoordinateAuf(x - 1, y - 1);
+    for (int dx = -1; dx <= 1; dx++) {
+      for (int dy = -1; dy <= 1; dy++) {
+        if (dx == 0 && dy == 0) {
+          continue;
+        }
+        int nx = x + dx;
+        int ny = y + dy;
+        if (nx >= 0 && nx < zellen.length && ny >= 0 && ny < zellen[0].length) {
+          deckeKoordinateAuf(nx, ny);
+        }
+      }
     }
   }
-
 
   /**
    * Aktualisiert die angegebene Zelle auf den gewünschten Status.

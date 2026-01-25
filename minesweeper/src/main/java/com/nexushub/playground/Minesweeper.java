@@ -13,8 +13,7 @@ import com.nexushub.playground.spiel.Status;
 public class Minesweeper {
   private static Spielfeld spielfeld;
 
-  private static Benutzerschnittstelle ui = new Benutzerschnittstelle(System.out);
-
+  private static final Benutzerschnittstelle ui = new Benutzerschnittstelle();
 
   /**
    * Der Ablauf des Spiels findet hier statt.
@@ -29,7 +28,7 @@ public class Minesweeper {
   }
 
   /**
-   * Alles was zum starten des Spiels benötigt wird, wird hier gemacht.
+   * Alles, was zum Starten des Spiels benötigt wird, wird hier gemacht.
    **/
   private void aufsetzen() {
     int groesse = ui.fragSpielfeldGroesse();
