@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application title="Test">
+    <text id="0">
+        <content>
+            japajpjf
+            awerasdf
+        </content>
+    </text>
+    <text id="1">
+        <content>
+            test
+            hahah
+        </content>
+    </text>
+    <text id="3">
+        <content>test \n hahah453</content>
+    </text>
+    <text id="2">
+        <content>test \n hahahertw4j</content>
+    </text>
+    <endText>
+        Let's gooo!!!
+    </endText>
+</application>

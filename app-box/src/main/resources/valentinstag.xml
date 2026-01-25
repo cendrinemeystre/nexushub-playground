@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application title="ValentinesDay">
+    <text id="0">
+        <content>
+            Will you be my Valentine? ❤️
+        </content>
+    </text>
+    <text id="1">
+        <content>
+            Are you sure? 🥺
+        </content>
+    </text>
+    <text id="2">
+        <content>
+            Really?? :( 💔
+        </content>
+    </text>
+    <text id="3">
+        <content>
+            Final chance... please say yes? 😭
+        </content>
+    </text>
+    <text id="4">
+        <content>
+            I promise it'll be the best Valentine's ever! 💕
+        </content>
+    </text>
+    <text id="5">
+        <content>
+            I'll even get you your favorite olives! 🍫
+        </content>
+    </text>
+    <text id="6">
+        <content>
+            Think of all the fun we could have! 😍
+        </content>
+    </text>
+    <endText>
+        Yay! Can't wait for our date! 😘💕
+        Hope Arirang or a chill night in is to your taste 💕
+    </endText>
+</application>

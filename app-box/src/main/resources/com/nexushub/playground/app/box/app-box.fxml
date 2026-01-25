@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.nexushub.playground.app.box.AppBoxController" spacing="10"
+      alignment="CENTER">
+    <TextFlow fx:id="textFlow"/>
+    <HBox spacing="10" alignment="BOTTOM_CENTER">
+        <Button fx:id="yesButton"/>
+        <Button fx:id="noButton"/>
+    </HBox>
+</VBox>
