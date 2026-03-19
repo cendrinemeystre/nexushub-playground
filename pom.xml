@@ -16,7 +16,6 @@
         <module>tomcat-configuration</module>
         <module>tik-tak-toe</module>
         <module>text-adventure</module>
-        <module>spliiit</module>
         <module>minesweeper</module>
         <module>hangman</module>
     </modules>
