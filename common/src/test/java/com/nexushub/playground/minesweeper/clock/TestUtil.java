@@ -1,4 +1,4 @@
-package com.nexushub.playground.clock;
+package com.nexushub.playground.minesweeper.clock;
 
 public class TestUtil {
   private final String[] esIsch = {"\033[0;1mE\033[0;0m", "\033[0;1mS\033[0;0m", "K", "\033[0;1mI\033[0;0m", "\033[0;1mS\033[0;0m", "\033[0;1mC\033[0;0m", "\033[0;1mH\033[0;0m", "A", "F", "Ü", "F"};

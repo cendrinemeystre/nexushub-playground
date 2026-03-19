@@ -1,4 +1,4 @@
-package com.nexushub.playground.sort;
+package com.nexushub.playground.minesweeper.sort;
 
 import java.util.Random;
 
@@ -9,7 +9,7 @@ public class QuickSort implements Sort {
     int key = random.nextInt(0, arr.length);
     for (int i = key; i < arr.length; i++) {
       while (arr[i + 1] > arr[key]) {
-        
+
       }
     }
 

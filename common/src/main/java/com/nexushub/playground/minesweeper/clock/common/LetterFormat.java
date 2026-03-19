@@ -1,4 +1,4 @@
-package com.nexushub.playground.clock.common;
+package com.nexushub.playground.minesweeper.clock.common;
 
 public enum LetterFormat {
   BOLD_ON("\033[0;1m"), BOLD_OFF("\033[0;0m");

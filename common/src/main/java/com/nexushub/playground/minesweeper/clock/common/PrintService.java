@@ -1,4 +1,4 @@
-package com.nexushub.playground.clock.common;
+package com.nexushub.playground.minesweeper.clock.common;
 
 public class PrintService {
   public void print(String[][] list) {

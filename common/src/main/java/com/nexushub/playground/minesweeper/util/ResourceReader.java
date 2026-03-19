@@ -1,4 +1,4 @@
-package com.nexushub.playground.util;
+package com.nexushub.playground.minesweeper.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;

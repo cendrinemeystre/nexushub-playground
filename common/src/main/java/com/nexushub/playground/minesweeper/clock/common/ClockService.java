@@ -1,4 +1,4 @@
-package com.nexushub.playground.clock.common;
+package com.nexushub.playground.minesweeper.clock.common;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.Executors;

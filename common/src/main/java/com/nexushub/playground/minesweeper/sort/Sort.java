@@ -1,4 +1,4 @@
-package com.nexushub.playground.sort;
+package com.nexushub.playground.minesweeper.sort;
 
 public interface Sort {
   long[] sort(long[] arr);

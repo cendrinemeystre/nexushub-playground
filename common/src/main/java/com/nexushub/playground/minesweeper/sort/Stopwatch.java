@@ -1,4 +1,4 @@
-package com.nexushub.playground.sort;
+package com.nexushub.playground.minesweeper.sort;
 
 import java.time.Duration;
 import java.time.Instant;

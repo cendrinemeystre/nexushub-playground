@@ -1,12 +1,12 @@
-package com.nexushub.playground.clock.common;
+package com.nexushub.playground.minesweeper.clock.common;
 
-import com.nexushub.playground.util.ResourceReader;
+import com.nexushub.playground.minesweeper.util.ResourceReader;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-import static com.nexushub.playground.clock.common.LetterFormat.BOLD_OFF;
-import static com.nexushub.playground.clock.common.LetterFormat.BOLD_ON;
+import static com.nexushub.playground.minesweeper.clock.common.LetterFormat.BOLD_OFF;
+import static com.nexushub.playground.minesweeper.clock.common.LetterFormat.BOLD_ON;
 
 public class WatchOutletFormatter {
   private static final String FILE_NAME = "watchOutlet.txt";

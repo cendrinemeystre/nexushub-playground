@@ -1,7 +1,7 @@
-package com.nexushub.playground.clock;
+package com.nexushub.playground.minesweeper.clock;
 
 
-import com.nexushub.playground.clock.common.WatchOutletFormatter;
+import com.nexushub.playground.minesweeper.clock.common.WatchOutletFormatter;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
