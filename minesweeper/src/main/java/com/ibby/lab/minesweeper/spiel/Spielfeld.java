@@ -1,0 +1,162 @@
+package com.ibby.lab.minesweeper.spiel;
+
+import com.ibby.lab.minesweeper.spiel.cell.Mine;
+import com.ibby.lab.minesweeper.spiel.cell.Zelle;
+
+import java.util.Objects;
+import java.util.Random;
+
+public class Spielfeld {
+  public Zelle[][] zellen;
+
+  private int minenAnzahl;
+
+  /**
+   * @param minenAnzahl Integer mit der Eingabe des Benutzers.
+   * @author Cendrine
+   * Konstruktor. Prüft, ob die minenAnzahl zwischen 5 und 50 ist.
+   * Ist dem nicht so, wird dies auf das Mininum resp. das Maximum
+   * gesetzt. Das zellen Array wird mit neuen Zellen gefüllt.
+   *
+   **/
+  public Spielfeld(int minenAnzahl, int groesse) {
+    int min = 5;
+    int maxGroesse = 10;
+    if (groesse < min) {
+      this.zellen = new Zelle[min][min];
+    } else if (groesse > maxGroesse) {
+      this.zellen = new Zelle[maxGroesse][maxGroesse];
+    } else {
+      this.zellen = new Zelle[groesse][groesse];
+    }
+
+    int maxBomben = (int) Math.pow(groesse, 2) - 10;
+    if (minenAnzahl < min) {
+      this.minenAnzahl = min;
+    } else {
+      this.minenAnzahl = Math.min(minenAnzahl, maxBomben);
+    }
+
+    for (int i = 0; i < zellen.length; i++) {
+      for (int j = 0; j < zellen[i].length; j++) {
+        zellen[i][j] = new Zelle();
+        zellen[i][j].setStatus(Status.VERDECKT);
+      }
+    }
+    setzeMinen();
+    setzeZahl();
+  }
+
+  /**
+   * Setzt alle Minen nach dem Zufallsprinzip.
+   *
+   **/
+  private void setzeMinen() {
+    Random random = new Random();
+    int minen = minenAnzahl;
+    for (int i = 0; i < minenAnzahl; i++) {
+      int x = random.nextInt(zellen.length);
+      int y = random.nextInt(zellen[0].length);
+      if (!zellen[x][y].hatMine()) {
+        zellen[x][y].setMine(new Mine());
+        minen--;
+      } else {
+        minenAnzahl = minen;
+        setzeMinen();
+      }
+    }
+  }
+
+  /**
+   * Zählt wie viele Bomben sich um eine Zelle befinden und setzt diesen Wert in der Zelle.
+   **/
+  private void setzeZahl() {
+    for (int x = 0; x < zellen.length; x++) {
+      for (int y = 0; y < zellen[x].length; y++) {
+        if (zellen[x][y].hatMine()) {
+          continue;
+        }
+
+        int count = 0;
+        for (int dx = -1; dx <= 1; dx++) {
+          for (int dy = -1; dy <= 1; dy++) {
+            if (dx == 0 && dy == 0) {
+              continue;
+            }
+            int nx = x + dx;
+            int ny = y + dy;
+            if (nx >= 0 && nx < zellen.length && ny >= 0 && ny < zellen[x].length && zellen[nx][ny].hatMine()) {
+              count++;
+            }
+          }
+        }
+
+        zellen[x][y].setOutput(count);
+      }
+    }
+  }
+
+  /**
+   * Deckt die angegebene Koordinate auf, wenn es keine Mine ist und sie verdeckt ist.
+   *
+   * @param x Integer welcher die Position x entgegennimmt.
+   * @param y Integer welcher die Position y entgegennimmt.
+   *
+   **/
+  private void deckeKoordinateAuf(int x, int y) {
+    if (!zellen[x][y].hatMine() && zellen[x][y].getStatus() == Status.VERDECKT) {
+      zellen[x][y].setStatus(Status.AUFGEDECKT);
+      if (zellen[x][y].getOutput() == 0) {
+        deckeUmgebendeKoordinatenAuf(x, y);
+      }
+    }
+  }
+
+  /**
+   * Deckt alle Umgebenden Koordinaten auf.
+   *
+   * @param x Integer welcher die Position x entgegennimmt.
+   * @param y Integer welcher die Position y entgegennimmt.
+   *
+   **/
+  private void deckeUmgebendeKoordinatenAuf(int x, int y) {
+    for (int dx = -1; dx <= 1; dx++) {
+      for (int dy = -1; dy <= 1; dy++) {
+        if (dx == 0 && dy == 0) {
+          continue;
+        }
+        int nx = x + dx;
+        int ny = y + dy;
+        if (nx >= 0 && nx < zellen.length && ny >= 0 && ny < zellen[0].length) {
+          deckeKoordinateAuf(nx, ny);
+        }
+      }
+    }
+  }
+
+  /**
+   * Aktualisiert die angegebene Zelle auf den gewünschten Status.
+   * Es können nur die Status MARKIERT und VERDECKT verändert werden.
+   *
+   * @param x      Integer welcher die Position x entgegennimmt.
+   * @param y      Integer welcher die Position y entgegennimmt.
+   * @param status auf welchen Status die Zelle aktualisiert werden soll.
+   *
+   **/
+  public void veraendereStatus(int x, int y, Status status) {
+    if (zellen[x][y].getStatus() == Status.MARKIERT ||
+      zellen[x][y].getStatus() == Status.VERDECKT &&
+        (Objects.requireNonNull(zellen[x][y].getStatus()) == Status.MARKIERT ||
+          zellen[x][y].getStatus() == Status.VERDECKT)) {
+      zellen[x][y].setStatus(status);
+    }
+
+    if (zellen[x][y].getOutput() == 0 && zellen[x][y].getStatus() == Status.AUFGEDECKT && !zellen[x][y].hatMine()) {
+      deckeUmgebendeKoordinatenAuf(x, y);
+    }
+
+    if (zellen[x][y].hatMine() && zellen[x][y].getStatus() == Status.AUFGEDECKT) {
+      zellen[x][y].setStatus(Status.EXPLODIERT);
+    }
+  }
+}

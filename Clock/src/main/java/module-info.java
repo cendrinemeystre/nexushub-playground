@@ -8,6 +8,6 @@ module com.nexushub.playground.ui {
   requires org.kordamp.bootstrapfx.core;
   requires com.almasb.fxgl.all;
 
-  opens com.nexushub.playground.minesweeper.ui to javafx.fxml;
-  exports com.nexushub.playground.minesweeper.ui;
+  opens com.ibby.lab.minesweeper.ui to javafx.fxml;
+  exports com.ibby.lab.minesweeper.ui;
 }
