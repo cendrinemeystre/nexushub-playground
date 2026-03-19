@@ -1,7 +1,7 @@
-package com.nexushub.playground.app.box;
+package com.nexushub.playground.minesweeper.app.box;
 
-import com.nexushub.playground.app.box.xml.XmlReader;
-import com.nexushub.playground.app.box.xml.structure.Application;
+import com.nexushub.playground.minesweeper.app.box.xml.XmlReader;
+import com.nexushub.playground.minesweeper.app.box.xml.structure.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;

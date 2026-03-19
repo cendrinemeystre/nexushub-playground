@@ -4,7 +4,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.nexushub.playground.app.box.AppBoxController" spacing="10"
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.nexushub.playground.minesweeper.app.box.AppBoxController"
+      spacing="10"
       alignment="CENTER">
     <TextFlow fx:id="textFlow"/>
     <HBox spacing="10" alignment="BOTTOM_CENTER">

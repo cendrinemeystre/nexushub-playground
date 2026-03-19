@@ -1,4 +1,4 @@
-package com.nexushub.playground.app.box.xml.structure;
+package com.nexushub.playground.minesweeper.app.box.xml.structure;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -16,7 +16,7 @@ public class Text {
   public int getId() {
     return id;
   }
-  
+
   public String getContent() {
     return content;
   }

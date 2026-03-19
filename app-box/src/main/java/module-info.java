@@ -5,7 +5,7 @@ module com.nexushub.playground.app.box {
   requires jakarta.xml.bind;
   requires annotations;
 
-  opens com.nexushub.playground.app.box.xml.structure to jakarta.xml.bind;
-  opens com.nexushub.playground.app.box to javafx.fxml;
-  exports com.nexushub.playground.app.box;
+  opens com.nexushub.playground.minesweeper.app.box.xml.structure to jakarta.xml.bind;
+  opens com.nexushub.playground.minesweeper.app.box to javafx.fxml;
+  exports com.nexushub.playground.minesweeper.app.box;
 }

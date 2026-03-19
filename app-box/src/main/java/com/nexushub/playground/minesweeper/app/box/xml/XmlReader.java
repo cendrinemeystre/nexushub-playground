@@ -1,7 +1,7 @@
-package com.nexushub.playground.app.box.xml;
+package com.nexushub.playground.minesweeper.app.box.xml;
 
 
-import com.nexushub.playground.app.box.xml.structure.Application;
+import com.nexushub.playground.minesweeper.app.box.xml.structure.Application;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Unmarshaller;
 

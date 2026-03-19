@@ -119,7 +119,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.nexushub.playground.app.box.AppBox</mainClass>
+                            <mainClass>com.nexushub.playground.minesweeper.app.box.AppBox</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -145,7 +145,7 @@
                             </formats>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.nexushub.playground.app.box.AppBox
+                                    <mainClass>com.nexushub.playground.minesweeper.app.box.AppBox
                                     </mainClass> <!-- Replace with your main class -->
                                 </manifest>
                             </archive>

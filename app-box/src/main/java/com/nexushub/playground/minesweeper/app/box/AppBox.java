@@ -1,4 +1,4 @@
-package com.nexushub.playground.app.box;
+package com.nexushub.playground.minesweeper.app.box;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
