@@ -1,4 +1,4 @@
-package com.nexushub.playground;
+package com.nexushub.playground.minesweeper;
 
 import java.util.Arrays;
 
