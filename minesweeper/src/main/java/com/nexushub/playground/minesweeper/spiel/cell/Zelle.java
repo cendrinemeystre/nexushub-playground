@@ -1,6 +1,6 @@
-package com.nexushub.playground.spiel.cell;
+package com.nexushub.playground.minesweeper.spiel.cell;
 
-import com.nexushub.playground.spiel.Status;
+import com.nexushub.playground.minesweeper.spiel.Status;
 
 public class Zelle {
   private Mine mine;

@@ -1,8 +1,8 @@
-package com.nexushub.playground;
+package com.nexushub.playground.minesweeper;
 
-import com.nexushub.playground.console.Benutzerschnittstelle;
-import com.nexushub.playground.spiel.Spielfeld;
-import com.nexushub.playground.spiel.Status;
+import com.nexushub.playground.minesweeper.console.Benutzerschnittstelle;
+import com.nexushub.playground.minesweeper.spiel.Spielfeld;
+import com.nexushub.playground.minesweeper.spiel.Status;
 
 /**
  * Der Ablauf des Spiels wird hier behandelt.

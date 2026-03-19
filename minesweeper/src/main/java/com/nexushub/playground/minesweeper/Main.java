@@ -1,4 +1,4 @@
-package com.nexushub.playground;
+package com.nexushub.playground.minesweeper;
 
 public class Main {
   /**

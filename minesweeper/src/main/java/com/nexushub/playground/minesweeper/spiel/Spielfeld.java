@@ -1,7 +1,7 @@
-package com.nexushub.playground.spiel;
+package com.nexushub.playground.minesweeper.spiel;
 
-import com.nexushub.playground.spiel.cell.Mine;
-import com.nexushub.playground.spiel.cell.Zelle;
+import com.nexushub.playground.minesweeper.spiel.cell.Mine;
+import com.nexushub.playground.minesweeper.spiel.cell.Zelle;
 
 import java.util.Objects;
 import java.util.Random;

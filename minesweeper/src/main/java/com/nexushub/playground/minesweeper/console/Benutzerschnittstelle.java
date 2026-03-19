@@ -1,8 +1,8 @@
-package com.nexushub.playground.console;
+package com.nexushub.playground.minesweeper.console;
 
 
-import com.nexushub.playground.spiel.Spielfeld;
-import com.nexushub.playground.spiel.Status;
+import com.nexushub.playground.minesweeper.spiel.Spielfeld;
+import com.nexushub.playground.minesweeper.spiel.Status;
 
 /**
  * Die Benutzerschnittstelle kümmert sich um alles, was mit der Konsole zu tun hat.
