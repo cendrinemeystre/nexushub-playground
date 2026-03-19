@@ -113,12 +113,12 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <mainClass>com.nexushub.playground.ui.Clock</mainClass>
+                            <mainClass>com.nexushub.playground.minesweeper.ui.Clock</mainClass>
                         </configuration>
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.nexushub.playground.ui.Clock</mainClass>
+                    <mainClass>com.nexushub.playground.minesweeper.ui.Clock</mainClass>
                     <launcher>app</launcher>
                     <jlinkZipName>app</jlinkZipName>
                     <jlinkImageName>app-image</jlinkImageName>
@@ -153,7 +153,7 @@
                                 <argument>--name</argument>
                                 <argument>ClockApp</argument>
                                 <argument>--main-class</argument>
-                                <argument>com.nexushub.playground.ui.Clock</argument>
+                                <argument>com.nexushub.playground.minesweeper.ui.Clock</argument>
                                 <argument>--main-jar</argument>
                                 <argument>${project.build.finalName}.jar</argument>
                             </arguments>

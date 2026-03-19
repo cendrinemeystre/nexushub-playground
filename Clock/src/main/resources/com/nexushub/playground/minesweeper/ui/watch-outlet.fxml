@@ -2,7 +2,8 @@
 
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.nexushub.playground.ui.WatchOutletController" spacing="10"
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.nexushub.playground.minesweeper.ui.WatchOutletController"
+      spacing="10"
       alignment="CENTER">
     <TextFlow fx:id="textFlow"/>
 </VBox>
