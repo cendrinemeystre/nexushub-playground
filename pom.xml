@@ -18,6 +18,7 @@
         <module>text-adventure</module>
         <module>spliiit</module>
         <module>minesweeper</module>
+        <module>hangman</module>
     </modules>
 
     <properties>
